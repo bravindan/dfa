@@ -1,5 +1,6 @@
 "use client"
 
+import { useMediaQuery } from "react-responsive";
 import { Link as ScrollLink} from "react-scroll"
 
 const links=[
@@ -13,10 +14,15 @@ const links=[
     {name: 'contact', target:'contact',offset:0},
 ];
 
-export default function Navbar({containerStyles}: {containerStyles:string}) {
-  return (
-    <nav className={`${containerStyles}`}>
+export default function MobileNav({containerStyles}:{containerStyles:string}) {
+    const isMobile = useMediaQuery(
         {
+            query: '(max-width: 640px)'
+        }
+    )
+    return (
+    <nav className={`${containerStyles}`}>
+         {
             links.map((link,index) => {
                 return (
                 <ScrollLink
@@ -24,14 +30,13 @@ export default function Navbar({containerStyles}: {containerStyles:string}) {
                  to={link.target} 
                  offset={link.offset} 
                  smooth spy 
-                 activeClass="active"
+                 activeClass={`${!isMobile && 'active'}`}
                  className="cursor-pointer hover:text-accent transition-all" >
                     {link.name}
                 </ScrollLink>)
             }
         )
-        }         
-            
+        } 
     </nav>
   )
 }

@@ -24,5 +24,8 @@
    .h5{
         @apply text-[22px] ;
     }
+    .active{
+        @apply text-accent;
+    }
 
 }
