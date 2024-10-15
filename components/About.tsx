@@ -6,7 +6,9 @@ import { IoIosPricetag } from 'react-icons/io'
 import { FaDumbbell } from 'react-icons/fa6'
 import Achievements from './Achievements'
 import { motion } from 'framer-motion'
-import {fadeIn} from '/lib/variants'
+import { fadeIn } from '@/lib/variants'
+
+
 const featured =[
   {icon: <FaUsers/>,
   title: 'Best Trainers',

@@ -4,8 +4,8 @@ import {useRef} from 'react'
 import CountUp from 'react-countup'
 import { FaBriefcase,FaClock,FaTrophy } from 'react-icons/fa'
 import { ImUsers } from 'react-icons/im'
-import { motion, stagger, useInView } from 'framer-motion'
-import { once } from 'events'
+import { motion, useInView } from 'framer-motion'
+
 
 const stats = [
     {
@@ -15,7 +15,7 @@ const stats = [
     },
     {
         icon: FaClock,
-        title: 'Hours Worked',
+        title: 'Hours',
         count: 100,
     },
     {
@@ -25,16 +25,11 @@ const stats = [
     },
     {
         icon: ImUsers,
-        title: 'Team Members',
+        title: 'Team ',
         count: 10,
     },
     ]
-
-export default function Achievements() {
-    const ref = useRef(null)
-    const isInView = useInView(ref)
-
-    const statsContainervariants = {
+const statsContainervariants = {
         visible: {
             opacity: 1,
             transition: {
@@ -61,6 +56,10 @@ export default function Achievements() {
             opacity: 0,
         }
         };
+
+export default function Achievements() {
+    const ref = useRef(null)
+    const isInView = useInView(ref)
 
     return (
       <section className="">
